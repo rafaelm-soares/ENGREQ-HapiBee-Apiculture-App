@@ -2,14 +2,14 @@
 
 HapiBee is a mobile and backend system designed to support beekeeping operations, planning, and communication with official Portuguese authorities. Developed as part of the "Engenharia de Requisitos" course at ISEP.
 
-## 📋 Project Overview
+## Project Overview
 
 Developed in collaboration with DGADR, HapiBee enhances the beekeeping workflow by:
 - Managing apiaries, inspections, and honey collection.
 - Supporting official processes: inventory declarations, transhumance requests, and disease reporting.
 - Planning and tracking daily tasks and operations.
 
-## 🔧 Technologies
+## Technologies
 
 ### Frontend
 - **React + TypeScript**: component-based UI development.
@@ -28,7 +28,7 @@ Developed in collaboration with DGADR, HapiBee enhances the beekeeping workflow 
 - **Jira**: Agile project management.
 - **Bitbucket**: Version control.
 
-## 🧪 Functionalities by Sprint
+## Functionalities by Sprint
 
 ### Sprint 1
 - Apiary creation and installation requests.
@@ -41,34 +41,34 @@ Developed in collaboration with DGADR, HapiBee enhances the beekeeping workflow 
 - Improvements based on Sprint 1 feedback.
 - Offline operation with sync on reconnection.
 
-## 🧱 Architecture
+## Architecture
 
 - **Mobile Frontend (HapiBee App)**
 - **Backend API (Spring Boot)**
 - **Mock Portal Backend (Postman)**
 - Follows component and domain-driven design.
 
-## 🧠 Development Process
+## Development Process
 
 - Agile methodology (Scrum).
 - Daily standups and sprint planning.
 - User stories managed via Jira, labeled by epic and sprint.
 - Commit structure: `feat: Added inspection module | #HAP-76 #HAP-77`.
 
-## 📸 Screenshots
+## Screenshots
 
 Screens and mockups included in the `/docs` folder, along with diagrams:
 - Component Diagram
 - Domain Model
 - Use Case Diagram
 
-## 🔒 Non-Functional Requirements
+## Non-Functional Requirements
 
 - Works offline with synchronization when reconnected.
 - Secure API communication.
 - Scalable and maintainable architecture.
 
-## 📂 Repository Structure
+## Repository Structure
 
 - /hapibee → Backend Spring Boot project
 - /hapibee-app → React Native frontend project
