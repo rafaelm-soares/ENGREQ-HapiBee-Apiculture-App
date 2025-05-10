@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box
+}
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+}  
+
+.main {
+  flex-grow: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 0;
+}
+
+.main.authenticated {
+  margin-left: var(--width-sidebar-desktop-closed);
+}
+
+.main.authenticated.sidebarDesktopOpen {
+  margin-left: var(--width-sidebar-desktop-open);
+  transition: all 0.5s ease;
+}
+
+@media screen and (max-width: 768px) {
+  .main.authenticated.sidebarDesktopOpen,
+  .main.authenticated {
+    margin-left: 0
+  }
+}

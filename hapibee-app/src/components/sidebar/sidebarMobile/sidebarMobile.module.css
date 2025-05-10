@@ -1,0 +1,82 @@
+.sidebarMob {
+  min-height: var(--height-sidebar-mobile);
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.sidebarMobile {
+  background-color: var(--color-sidebar);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 4rem;
+  height: var(--height-sidebar-mobile);
+  border-radius: 20px 20px 0px 0px;
+  background-color: var(--color-sidebar);
+}
+
+.sidebarMobile .navLink svg {
+  fill: var(--color-sidebar-icons);
+  position: relative;
+  width: 26px;
+  height: 26px;
+}
+
+svg.icon {
+  fill: var(--color-sidebar-icons);
+  height: 1.2rem;
+  width: 1.2rem;
+}
+
+.sidebarMobile .navLink .label {
+  display: none;
+}
+
+.sidebarMob .optionsOpen {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-sidebar-icons);
+  width: 40px;
+  height: 40px;
+  font-size: 1rem;
+  text-align: center;
+  border-radius: 50%;
+  display: inline-block;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: unset;
+  min-width: unset;
+}
+
+.sidebarMobile .active svg {
+  fill: var(--color-sidebar-icons-active);
+}
+
+.overlay {
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: -1;
+  min-height: 200px;
+  background-color: var(--color-overlay);
+}
+
+@media screen and (min-width: 769px) {
+  .sidebarMobile {
+    display: none;
+  }
+}

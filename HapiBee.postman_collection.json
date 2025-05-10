@@ -1,0 +1,3628 @@
+{
+	"info": {
+		"_postman_id": "81cf8360-99b6-4b88-a4cc-8ade32d5025d",
+		"name": "HapiBee",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29857204"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Sign up",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"Username 1\",\r\n  \"password\": \"Teste1@\",\r\n  \"firstName\": \"Name 1\",\r\n  \"lastName\": \"Surname 1\",\r\n  \"email\": \"email@email.com\",\r\n  \"phoneNumber\": 1234576\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/sign-up",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"sign-up"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "http://localhost:8080/auth/sign-up",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"Username 1\",\r\n  \"password\": \"Teste123@\",\r\n  \"firstName\": \"Marta\",\r\n  \"lastName\": \"Trindade\",\r\n  \"email\": \"email@email.com\",\r\n  \"phoneNumber\": 1234576\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/auth/sign-up",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"sign-up"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 25 Nov 2023 18:03:37 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User registered successfully!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Sign in",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Parse the JSON response\r",
+									"var jsonData = pm.response.json();\r",
+									"var headerData = pm.response.headers.get('Authorization');\r",
+									"var headerCoockieData = pm.response.headers.get('Set-Cookie');\r",
+									"\r",
+									"// Extract the token field from the response and store it as a variable\r",
+									"//pm.environment.set(\"authToken\", jsonData.token);\r",
+									"pm.collectionVariables.set(\"authToken\", jsonData.token);\r",
+									"pm.collectionVariables.set(\"authTokenHeader\", headerData);\r",
+									"pm.collectionVariables.set(\"setCookieHeader\", headerCoockieData);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"email@email.com\",\r\n  \"password\": \"Teste123@\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/sign-in",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"sign-in"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sign in",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"email@email.com\",\r\n  \"password\": \"Teste123@\"\r\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/sign-in",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"sign-in"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "cookie=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlbWFpbEBlbWFpbC5jb20iLCJpYXQiOjE3MDA5MzU2OTQsImV4cCI6MTcwMDkzOTI5NH0.FU4jBUHFJONnpaLrL0wPgFJAT09PdwyqFafMV777F5c; Path=/; Max-Age=86400; SameSite=None; Secure; HttpOnly=true;"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 25 Nov 2023 18:08:14 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Marta Trindade\",\n    \"email\": \"email@email.com\",\n    \"token\": \" \",\n    \"role\": [\n        \"ROLE_USER\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/logout",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Logout",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/logout",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "JSESSIONID=48D13FB530F73B4F4A1D1B416609E9BC; Path=/; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "cookie=; Path=/; Max-Age=0; SameSite=None; Secure; HttpOnly=true;"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 25 Nov 2023 18:15:36 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User logged out!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Activate account",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/activate-account?token=token",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"activate-account"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "token"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete account",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/delete-account",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"delete-account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot Password",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"email\": \"email@email.com\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/forgot-password",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"forgot-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"email@email.com\",\r\n    \"password\": \"Teste123!\",\r\n    \"passwordConfirmation\": \"Teste123!\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/reset-password",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"reset-password"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get Account",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/protected/get-account",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"protected",
+								"get-account"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Account",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/protected/get-account",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"protected",
+										"get-account"
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 25 Nov 2023 18:16:13 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"firstName\": \"Marta\",\n    \"lastName\": \"Trindade\",\n    \"email\": \"email@email.com\",\n    \"phoneNumber\": \"1234576\",\n    \"address\": null,\n    \"postalNumber\": null,\n    \"postal\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Account",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 1,\r\n  \"firstName\": \"Name\",\r\n  \"lastName\": \"Surname\",\r\n  \"email\": \"email@email.com\",\r\n  \"phoneNumber\": 1234576,\r\n  \"address\": \"my street\",\r\n  \"postalNumber\": \"111\",\r\n  \"postal\": \"1\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/protected/update-account",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"protected",
+								"update-account"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Apiary",
+			"item": [
+				{
+					"name": "Create apiary",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numberOfHives\": 1,\r\n  \"productionGoal\": \"DIDACTIC\",\r\n  \"productionType\": \"CONVENTIONAL\",\r\n  \"location\": {\r\n    \"municipality\": \"Porto\",\r\n    \"parish\": \"Vila Nova de Gaia\",\r\n    \"place\": \"Crestuma\",\r\n    \"latitude\": 41.0687445,\r\n    \"longitude\": -8.5034664\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/protected/create-apiary",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"protected",
+								"create-apiary"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create apiary",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"numberOfHives\": 1,\r\n  \"productionGoal\": \"DIDACTIC\",\r\n  \"productionType\": \"CONVENTIONAL\",\r\n  \"location\": {\r\n    \"municipality\": \"Porto\",\r\n    \"parish\": \"Vila Nova de Gaia\",\r\n    \"place\": \"Crestuma\",\r\n    \"latitude\": 41.0687445,\r\n    \"longitude\": -8.5034664\r\n  },\r\n  \"isApproved\": false\r\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/protected/create-apiary",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"protected",
+										"create-apiary"
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 29 Nov 2023 23:46:23 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 4,\n    \"numberOfHives\": 1,\n    \"productionGoal\": \"DIDACTIC\",\n    \"productionType\": \"CONVENTIONAL\",\n    \"location\": {\n        \"municipality\": \"Porto\",\n        \"parish\": \"Vila Nova de Gaia\",\n        \"place\": \"Crestuma\",\n        \"latitude\": 41.0687445,\n        \"longitude\": -8.5034664\n    },\n    \"isApproved\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "Update apiary",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 2,\r\n  \"numberOfHives\": 1,\r\n  \"productionGoal\": \"SCIENTIFIC\",\r\n  \"productionType\": \"CONVENTIONAL\",\r\n  \"location\": {\r\n    \"municipality\": \"Porto\",\r\n    \"parish\": \"Vila Nova de Gaia\",\r\n    \"place\": \"Crestuma\",\r\n    \"latitude\": 41.0687445,\r\n    \"longitude\": -8.5034664\r\n  },\r\n  \"isApproved\": false\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/protected/update-apiary",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"protected",
+								"update-apiary"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update apiary",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 2,\r\n  \"numberOfHives\": 1,\r\n  \"productionGoal\": \"SCIENTIFIC\",\r\n  \"productionType\": \"CONVENTIONAL\",\r\n  \"location\": {\r\n    \"municipality\": \"Porto\",\r\n    \"parish\": \"Vila Nova de Gaia\",\r\n    \"place\": \"Crestuma\",\r\n    \"latitude\": 41.0687445,\r\n    \"longitude\": -8.5034664\r\n  },\r\n  \"isApproved\": false\r\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/protected/update-apiary",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"protected",
+										"update-apiary"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "2",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 00:01:14 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"numberOfHives\": 1,\n    \"productionGoal\": \"SCIENTIFIC\",\n    \"productionType\": \"CONVENTIONAL\",\n    \"location\": {\n        \"municipality\": \"Porto\",\n        \"parish\": \"Vila Nova de Gaia\",\n        \"place\": \"Crestuma\",\n        \"latitude\": 41.0687445,\n        \"longitude\": -8.5034664\n    },\n    \"isApproved\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "Get apiary list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/protected/get-apiary-list",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"protected",
+								"get-apiary-list"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get apiary list",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/protected/get-apiary-list",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"protected",
+										"get-apiary-list"
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 29 Nov 2023 23:55:47 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"numberOfHives\": 1,\n        \"productionGoal\": \"DIDACTIC\",\n        \"productionType\": \"CONVENTIONAL\",\n        \"location\": {\n            \"municipality\": \"Porto\",\n            \"parish\": \"Vila Nova de Gaia\",\n            \"place\": \"Crestuma\",\n            \"latitude\": 41.0687445,\n            \"longitude\": -8.5034664\n        },\n        \"isApproved\": false\n    },\n    {\n        \"id\": 2,\n        \"numberOfHives\": 1,\n        \"productionGoal\": \"DIDACTIC\",\n        \"productionType\": \"CONVENTIONAL\",\n        \"location\": {\n            \"municipality\": \"Porto\",\n            \"parish\": \"Vila Nova de Gaia\",\n            \"place\": \"Crestuma\",\n            \"latitude\": 41.0687445,\n            \"longitude\": -8.5034664\n        },\n        \"isApproved\": false\n    },\n    {\n        \"id\": 3,\n        \"numberOfHives\": 1,\n        \"productionGoal\": \"DIDACTIC\",\n        \"productionType\": \"CONVENTIONAL\",\n        \"location\": {\n            \"municipality\": \"Porto\",\n            \"parish\": \"Vila Nova de Gaia\",\n            \"place\": \"Crestuma\",\n            \"latitude\": 41.0687445,\n            \"longitude\": -8.5034664\n        },\n        \"isApproved\": false\n    },\n    {\n        \"id\": 4,\n        \"numberOfHives\": 1,\n        \"productionGoal\": \"DIDACTIC\",\n        \"productionType\": \"CONVENTIONAL\",\n        \"location\": {\n            \"municipality\": \"Porto\",\n            \"parish\": \"Vila Nova de Gaia\",\n            \"place\": \"Crestuma\",\n            \"latitude\": 41.0687445,\n            \"longitude\": -8.5034664\n        },\n        \"isApproved\": false\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Delete apiary",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/protected/delete-apiary/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"protected",
+								"delete-apiary",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete apiary",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/protected/delete-apiary/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"protected",
+										"delete-apiary",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 00:06:13 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Apiary deleted.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Approve/Fail apiary",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/protected/approve-apiary/:id?approvalStatus=true",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"protected",
+								"approve-apiary",
+								":id"
+							],
+							"query": [
+								{
+									"key": "approvalStatus",
+									"value": "true"
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Approve/Fail apiary",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/protected/approve-apiary/:id?approvalStatus=true",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"protected",
+										"approve-apiary",
+										":id"
+									],
+									"query": [
+										{
+											"key": "approvalStatus",
+											"value": "true"
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 01 Dec 2023 10:48:52 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Apiary approval status updated.\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "FieldBook",
+			"item": [
+				{
+					"name": "Inspections",
+					"item": [
+						{
+							"name": "Get inspections",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/protected/field-book/get-inspection-list",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"protected",
+										"field-book",
+										"get-inspection-list"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get inspections",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/protected/field-book/get-inspection-list",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"protected",
+												"field-book",
+												"get-inspection-list"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 02 Dec 2023 11:55:33 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"maintenance\": [\n        {\n            \"id\": 4,\n            \"apiaryID\": 5,\n            \"hiveID\": 1,\n            \"date\": \"2023-11-11\",\n            \"temperature\": \"21ºC\",\n            \"humidity\": \"10%\",\n            \"inspectionType\": \"APIARY_CLEANING\",\n            \"motive\": \"MAINTENANCE\",\n            \"disinfectionMode\": \"WATER_VAPOR\",\n            \"productsUsed\": \"\",\n            \"observations\": \"\"\n        },\n        {\n            \"id\": 5,\n            \"apiaryID\": 5,\n            \"hiveID\": 1,\n            \"date\": \"2023-11-11\",\n            \"temperature\": \"21ºC\",\n            \"humidity\": \"10%\",\n            \"inspectionType\": \"APIARY_CLEANING\",\n            \"motive\": \"MAINTENANCE\",\n            \"disinfectionMode\": \"WATER_VAPOR\",\n            \"productsUsed\": \"\",\n            \"observations\": \"\"\n        },\n        {\n            \"id\": 6,\n            \"apiaryID\": 5,\n            \"hiveID\": 1,\n            \"date\": \"2023-11-11\",\n            \"temperature\": \"20ºC\",\n            \"humidity\": \"10%\",\n            \"inspectionType\": \"APIARY_CLEANING\",\n            \"motive\": \"MAINTENANCE\",\n            \"disinfectionMode\": \"WATER_VAPOR\",\n            \"productsUsed\": \"\",\n            \"observations\": \"\"\n        }\n    ],\n    \"feeding\": [\n        {\n            \"id\": 1,\n            \"apiaryID\": 5,\n            \"hiveID\": 1,\n            \"date\": \"2023-11-11\",\n            \"product\": \"Pollen Substitute\",\n            \"formula\": \"Protein-rich blend\",\n            \"origin\": \"EXTERNAL\",\n            \"dose\": \"1 tablespoon per hive\"\n        },\n        {\n            \"id\": 2,\n            \"apiaryID\": 5,\n            \"hiveID\": 1,\n            \"date\": \"2023-11-11\",\n            \"product\": \"Pollen Substitute\",\n            \"formula\": \"Protein-rich blend\",\n            \"origin\": \"EXTERNAL\",\n            \"dose\": \"1 tablespoon per hive\"\n        }\n    ],\n    \"treatments\": [\n        {\n            \"id\": 1,\n            \"apiaryID\": 5,\n            \"hiveID\": 1,\n            \"date\": \"2023-11-11\",\n            \"type\": \"CLINICAL_SUSPICION\",\n            \"disease\": \"Varroa Mites\",\n            \"medication\": \"Apistan\",\n            \"activeSubstance\": \"Flumethrin\",\n            \"dose\": \"2 strips per hive\",\n            \"duration\": \"14 days\",\n            \"endDate\": \"2023-12-16\"\n        },\n        {\n            \"id\": 2,\n            \"apiaryID\": 5,\n            \"hiveID\": 2,\n            \"date\": \"2023-11-11\",\n            \"type\": \"CLINICAL_SUSPICION\",\n            \"disease\": \"Varroa Mites\",\n            \"medication\": \"Apistan\",\n            \"activeSubstance\": \"Flumethrin\",\n            \"dose\": \"2 strips per hive\",\n            \"duration\": \"14 days\",\n            \"endDate\": \"2023-12-16\"\n        },\n        {\n            \"id\": 3,\n            \"apiaryID\": 5,\n            \"hiveID\": 1,\n            \"date\": \"2023-11-11\",\n            \"type\": \"CLINICAL_SUSPICION\",\n            \"disease\": \"Varroa Mites\",\n            \"medication\": \"Apistan\",\n            \"activeSubstance\": \"Flumethrin\",\n            \"dose\": \"2 strips per hive\",\n            \"duration\": \"14 days\",\n            \"endDate\": \"2023-12-16\"\n        },\n        {\n            \"id\": 4,\n            \"apiaryID\": 5,\n            \"hiveID\": 2,\n            \"date\": \"2023-11-11\",\n            \"type\": \"CLINICAL_SUSPICION\",\n            \"disease\": \"Varroa Mites\",\n            \"medication\": \"Apistan\",\n            \"activeSubstance\": \"Flumethrin\",\n            \"dose\": \"2 strips per hive\",\n            \"duration\": \"14 days\",\n            \"endDate\": \"2023-12-16\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Create inspection",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"apiaryID\": 5,\r\n  \"date\": \"2023-11-11\",\r\n  \"maintenance\": {\r\n    \"apiaryID\": 5,\r\n    \"hiveID\": [1],\r\n    \"date\": \"2023-11-11\",\r\n    \"temperature\": \"21ºC\",\r\n    \"humidity\": \"10%\",\r\n    \"inspectionType\": \"APIARY_CLEANING\",\r\n    \"motive\": \"MAINTENANCE\",\r\n    \"disinfectionMode\": \"WATER_VAPOR\",\r\n    \"productsUsed\": \"\",\r\n    \"observations\": \"\"\r\n  },\r\n  \"feeding\": {\r\n    \"apiaryID\": 5,\r\n    \"hiveID\": [1],\r\n    \"date\": \"2023-11-11\",\r\n    \"product\": \"Pollen Substitute\",\r\n    \"formula\": \"Protein-rich blend\",\r\n    \"origin\": \"EXTERNAL\",\r\n    \"dose\": \"1 tablespoon per hive\"\r\n  },\r\n  \"treatments\": {\r\n    \"apiaryID\": 5,\r\n    \"hiveID\": [1, 2],\r\n    \"date\": \"2023-11-11\",\r\n    \"type\": \"CLINICAL_SUSPICION\",\r\n    \"disease\": \"Varroa Mites\",\r\n    \"medication\": \"Apistan\",\r\n    \"activeSubstance\": \"Flumethrin\",\r\n    \"dose\": \"2 strips per hive\",\r\n    \"duration\": \"14 days\",\r\n    \"endDate\": \"2023-12-16\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/protected/field-book/create-inspection",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"protected",
+										"field-book",
+										"create-inspection"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Create inspection",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"apiaryID\": 5,\r\n  \"date\": \"2023-11-11\",\r\n  \"maintenance\": {\r\n    \"apiaryID\": 5,\r\n    \"hiveID\": [1],\r\n    \"date\": \"2023-11-11\",\r\n    \"temperature\": \"21ºC\",\r\n    \"humidity\": \"10%\",\r\n    \"inspectionType\": \"APIARY_CLEANING\",\r\n    \"motive\": \"MAINTENANCE\",\r\n    \"disinfectionMode\": \"WATER_VAPOR\",\r\n    \"productsUsed\": \"\",\r\n    \"observations\": \"\"\r\n  },\r\n  \"feeding\": {\r\n    \"apiaryID\": 5,\r\n    \"hiveID\": [1],\r\n    \"date\": \"2023-11-11\",\r\n    \"product\": \"Pollen Substitute\",\r\n    \"formula\": \"Protein-rich blend\",\r\n    \"origin\": \"EXTERNAL\",\r\n    \"dose\": \"1 tablespoon per hive\"\r\n  },\r\n  \"treatments\": {\r\n    \"apiaryID\": 5,\r\n    \"hiveID\": [1, 2],\r\n    \"date\": \"2023-11-11\",\r\n    \"type\": \"CLINICAL_SUSPICION\",\r\n    \"disease\": \"Varroa Mites\",\r\n    \"medication\": \"Apistan\",\r\n    \"activeSubstance\": \"Flumethrin\",\r\n    \"dose\": \"2 strips per hive\",\r\n    \"duration\": \"14 days\",\r\n    \"endDate\": \"2023-12-16\"\r\n  }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/protected/field-book/create-inspection",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"protected",
+												"field-book",
+												"create-inspection"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 02 Dec 2023 11:50:33 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"maintenance\": [\n        {\n            \"id\": 5,\n            \"apiaryID\": 5,\n            \"hiveID\": 1,\n            \"date\": \"2023-11-11\",\n            \"temperature\": \"21ºC\",\n            \"humidity\": \"10%\",\n            \"inspectionType\": \"APIARY_CLEANING\",\n            \"motive\": \"MAINTENANCE\",\n            \"disinfectionMode\": \"WATER_VAPOR\",\n            \"productsUsed\": \"\",\n            \"observations\": \"\"\n        }\n    ],\n    \"feeding\": [\n        {\n            \"id\": 1,\n            \"apiaryID\": 5,\n            \"hiveID\": 1,\n            \"date\": \"2023-11-11\",\n            \"product\": \"Pollen Substitute\",\n            \"formula\": \"Protein-rich blend\",\n            \"origin\": \"EXTERNAL\",\n            \"dose\": \"1 tablespoon per hive\"\n        }\n    ],\n    \"treatments\": [\n        {\n            \"id\": 1,\n            \"apiaryID\": 5,\n            \"hiveID\": 1,\n            \"date\": \"2023-11-11\",\n            \"type\": \"CLINICAL_SUSPICION\",\n            \"disease\": \"Varroa Mites\",\n            \"medication\": \"Apistan\",\n            \"activeSubstance\": \"Flumethrin\",\n            \"dose\": \"2 strips per hive\",\n            \"duration\": \"14 days\",\n            \"endDate\": \"2023-12-16\"\n        },\n        {\n            \"id\": 2,\n            \"apiaryID\": 5,\n            \"hiveID\": 2,\n            \"date\": \"2023-11-11\",\n            \"type\": \"CLINICAL_SUSPICION\",\n            \"disease\": \"Varroa Mites\",\n            \"medication\": \"Apistan\",\n            \"activeSubstance\": \"Flumethrin\",\n            \"dose\": \"2 strips per hive\",\n            \"duration\": \"14 days\",\n            \"endDate\": \"2023-12-16\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Register maintenance",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"apiaryID\": 5,\r\n  \"hiveID\": [1],\r\n  \"date\": \"2023-11-11\",\r\n  \"temperature\": \"20ºC\",\r\n  \"humidity\": \"10%\",\r\n  \"inspectionType\": \"APIARY_CLEANING\",\r\n  \"motive\": \"MAINTENANCE\",\r\n  \"disinfectionMode\": \"WATER_VAPOR\",\r\n  \"productsUsed\": \"\",\r\n  \"observations\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/protected/field-book/register-maintenance",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"protected",
+										"field-book",
+										"register-maintenance"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Create inspection",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"apiaryID\": 5,\r\n  \"hiveID\": [1],\r\n  \"date\": \"2023-11-11\",\r\n  \"temperature\": \"20ºC\",\r\n  \"humidity\": \"10%\",\r\n  \"inspectionType\": \"APIARY_CLEANING\",\r\n  \"motive\": \"MAINTENANCE\",\r\n  \"disinfectionMode\": \"WATER_VAPOR\",\r\n  \"productsUsed\": \"\",\r\n  \"observations\": \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/protected/field-book/register-maintenance",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"protected",
+												"field-book",
+												"register-maintenance"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 02 Dec 2023 11:52:18 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 6,\n        \"apiaryID\": 5,\n        \"hiveID\": 1,\n        \"date\": \"2023-11-11\",\n        \"temperature\": \"20ºC\",\n        \"humidity\": \"10%\",\n        \"inspectionType\": \"APIARY_CLEANING\",\n        \"motive\": \"MAINTENANCE\",\n        \"disinfectionMode\": \"WATER_VAPOR\",\n        \"productsUsed\": \"\",\n        \"observations\": \"\"\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "Register disease",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"apiaryID\": 5,\r\n  \"hiveID\": [1, 2],\r\n  \"date\": \"2023-11-11\",\r\n  \"type\": \"CLINICAL_SUSPICION\",\r\n  \"disease\": \"Varroa Mites\",\r\n  \"medication\": \"Apistan\",\r\n  \"activeSubstance\": \"Flumethrin\",\r\n  \"dose\": \"2 strips per hive\",\r\n  \"duration\": \"14 days\",\r\n  \"endDate\": \"2023-12-16\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/protected/field-book/register-disease",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"protected",
+										"field-book",
+										"register-disease"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Register disease",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"apiaryID\": 5,\r\n  \"hiveID\": [1, 2],\r\n  \"date\": \"2023-11-11\",\r\n  \"type\": \"CLINICAL_SUSPICION\",\r\n  \"disease\": \"Varroa Mites\",\r\n  \"medication\": \"Apistan\",\r\n  \"activeSubstance\": \"Flumethrin\",\r\n  \"dose\": \"2 strips per hive\",\r\n  \"duration\": \"14 days\",\r\n  \"endDate\": \"2023-12-16\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/protected/field-book/register-disease",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"protected",
+												"field-book",
+												"register-disease"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 02 Dec 2023 11:53:54 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 3,\n        \"apiaryID\": 5,\n        \"hiveID\": 1,\n        \"date\": \"2023-11-11\",\n        \"type\": \"CLINICAL_SUSPICION\",\n        \"disease\": \"Varroa Mites\",\n        \"medication\": \"Apistan\",\n        \"activeSubstance\": \"Flumethrin\",\n        \"dose\": \"2 strips per hive\",\n        \"duration\": \"14 days\",\n        \"endDate\": \"2023-12-16\"\n    },\n    {\n        \"id\": 4,\n        \"apiaryID\": 5,\n        \"hiveID\": 2,\n        \"date\": \"2023-11-11\",\n        \"type\": \"CLINICAL_SUSPICION\",\n        \"disease\": \"Varroa Mites\",\n        \"medication\": \"Apistan\",\n        \"activeSubstance\": \"Flumethrin\",\n        \"dose\": \"2 strips per hive\",\n        \"duration\": \"14 days\",\n        \"endDate\": \"2023-12-16\"\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "Register feeding",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"apiaryID\": 5,\r\n  \"hiveID\": [1],\r\n  \"date\": \"2023-11-11\",\r\n  \"product\": \"Pollen Substitute\",\r\n  \"formula\": \"Protein-rich blend\",\r\n  \"origin\": \"EXTERNAL\",\r\n  \"dose\": \"1 tablespoon per hive\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/protected/field-book/register-feeding",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"protected",
+										"field-book",
+										"register-feeding"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Register feeding",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"apiaryID\": 5,\r\n  \"hiveID\": [1],\r\n  \"date\": \"2023-11-11\",\r\n  \"product\": \"Pollen Substitute\",\r\n  \"formula\": \"Protein-rich blend\",\r\n  \"origin\": \"EXTERNAL\",\r\n  \"dose\": \"1 tablespoon per hive\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/protected/field-book/register-feeding",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"protected",
+												"field-book",
+												"register-feeding"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 02 Dec 2023 11:55:05 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 2,\n        \"apiaryID\": 5,\n        \"hiveID\": 1,\n        \"date\": \"2023-11-11\",\n        \"product\": \"Pollen Substitute\",\n        \"formula\": \"Protein-rich blend\",\n        \"origin\": \"EXTERNAL\",\n        \"dose\": \"1 tablespoon per hive\"\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "Get inspections scheduled",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/protected/field-book/schedule-inspection",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"protected",
+										"field-book",
+										"schedule-inspection"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get inspections scheduled",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/protected/field-book/schedule-inspection",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"protected",
+												"field-book",
+												"schedule-inspection"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Jan 2024 21:36:46 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"date\": \"2024-01-07\",\n        \"apiaryID\": 5\n    },\n    {\n        \"date\": \"2024-01-09\",\n        \"apiaryID\": 5\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "Schedule inspection",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"apiaryID\": 5,\r\n  \"date\": \"2023-11-11\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/protected/field-book/schedule-inspection",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"protected",
+										"field-book",
+										"schedule-inspection"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Schedule inspection",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"apiaryID\": 5,\r\n  \"date\": \"2024-01-07\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/protected/field-book/schedule-inspection",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"protected",
+												"field-book",
+												"schedule-inspection"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Jan 2024 21:33:25 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "true"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Transfers",
+					"item": [
+						{
+							"name": "Create Transfer",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"apiaryID\": 5,\r\n  \"date\": \"2023-11-11\",\r\n  \"maintenance\": {\r\n    \"apiaryID\": 5,\r\n    \"hiveID\": [1],\r\n    \"date\": \"2023-11-11\",\r\n    \"temperature\": \"21ºC\",\r\n    \"humidity\": \"10%\",\r\n    \"inspectionType\": \"APIARY_CLEANING\",\r\n    \"motive\": \"MAINTENANCE\",\r\n    \"disinfectionMode\": \"WATER_VAPOR\",\r\n    \"productsUsed\": \"\",\r\n    \"observations\": \"\"\r\n  },\r\n  \"feeding\": {\r\n    \"apiaryID\": 5,\r\n    \"hiveID\": [1],\r\n    \"date\": \"2023-11-11\",\r\n    \"product\": \"Pollen Substitute\",\r\n    \"formula\": \"Protein-rich blend\",\r\n    \"origin\": \"EXTERNAL\",\r\n    \"dose\": \"1 tablespoon per hive\"\r\n  },\r\n  \"treatments\": {\r\n    \"apiaryID\": 5,\r\n    \"hiveID\": [1, 2],\r\n    \"date\": \"2023-11-11\",\r\n    \"type\": \"CLINICAL_SUSPICION\",\r\n    \"disease\": \"Varroa Mites\",\r\n    \"medication\": \"Apistan\",\r\n    \"activeSubstance\": \"Flumethrin\",\r\n    \"dose\": \"2 strips per hive\",\r\n    \"duration\": \"14 days\",\r\n    \"endDate\": \"2023-12-16\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/protected/field-book/create-inspection",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"protected",
+										"field-book",
+										"create-inspection"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Create Transfer",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"apiaryID\": 1,\r\n  \"date\": \"2023-12-06\",\r\n  \"location\": {\r\n    \"municipality\": \"Lisboa\",\r\n    \"parish\": \"Vila Nova de Gaia\",\r\n    \"place\": \"Crestuma\",\r\n    \"latitude\": 43.0687445,\r\n    \"longitude\": -8.5034664\r\n  }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/protected/field-book/create-transfer",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"protected",
+												"field-book",
+												"create-transfer"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 06 Dec 2023 22:00:47 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": 1,\n    \"date\": null,\n    \"apiaryID\": 1,\n    \"location\": {\n        \"municipality\": \"Lisboa\",\n        \"parish\": \"Vila Nova de Gaia\",\n        \"place\": \"Crestuma\",\n        \"latitude\": 43.0687445,\n        \"longitude\": -8.5034664\n    },\n    \"isDgavApproved\": \"PENDING\",\n    \"isControledZoneApproved\": \"PENDING\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Aprove Transfer",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/protected/field-book/approve-transfer/:id?approvalControlledZonesStatus=true",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"protected",
+										"field-book",
+										"approve-transfer",
+										":id"
+									],
+									"query": [
+										{
+											"key": "approvalDgavStatus",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "approvalControlledZonesStatus",
+											"value": "true"
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Aprove Transfer",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/protected/field-book/approve-transfer/:id?approvalDgavStatus=true&approvalControlledZonesStatus=true",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"protected",
+												"field-book",
+												"approve-transfer",
+												":id"
+											],
+											"query": [
+												{
+													"key": "approvalDgavStatus",
+													"value": "true"
+												},
+												{
+													"key": "approvalControlledZonesStatus",
+													"value": "true"
+												}
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 06 Dec 2023 22:09:48 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Transfer approval status updated.\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Crest",
+					"item": [
+						{
+							"name": "Get Crest",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": [
+								{
+									"name": "Get Crest",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/protected/get-cresta-list",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"protected",
+												"get-cresta-list"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 09 Dec 2023 10:22:56 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 1,\n        \"apiaryID\": 1,\n        \"hiveID\": 3,\n        \"nrOfBoards\": 7,\n        \"ProductType\": \"HONEY\",\n        \"quantity\": 10,\n        \"quantityType\": \"KG\",\n        \"CrestaDate\": \"2023-12-10\"\n    },\n    {\n        \"id\": 2,\n        \"apiaryID\": 1,\n        \"hiveID\": 3,\n        \"nrOfBoards\": 7,\n        \"ProductType\": \"WAX\",\n        \"quantity\": 10,\n        \"quantityType\": \"KG\",\n        \"CrestaDate\": \"2023-07-07\"\n    },\n    {\n        \"id\": 3,\n        \"apiaryID\": 1,\n        \"hiveID\": 3,\n        \"nrOfBoards\": 3,\n        \"ProductType\": \"HONEY\",\n        \"quantity\": 3,\n        \"quantityType\": \"KG\",\n        \"CrestaDate\": \"2023-12-19\"\n    },\n    {\n        \"id\": 4,\n        \"apiaryID\": 1,\n        \"hiveID\": 2,\n        \"nrOfBoards\": 8,\n        \"ProductType\": \"SWARMS\",\n        \"quantity\": 3,\n        \"quantityType\": \"NR\",\n        \"CrestaDate\": \"2023-12-26\"\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "Create Crest",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": [
+								{
+									"name": "Create Crest",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"apiaryID\": 1,\r\n    \"hiveID\":3,\r\n    \"nrOfBoards\": 7,\r\n    \"ProductType\":\"WAX\",\r\n    \"quantity\":10,\r\n    \"quantityType\": \"KG\",\r\n    \"CrestaDate\": \"2023-07-07\"\r\n  \r\n  }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/protected/create-cresta",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"protected",
+												"create-cresta"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 09 Dec 2023 10:24:16 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": 5,\n    \"apiaryID\": 1,\n    \"hiveID\": 3,\n    \"nrOfBoards\": 7,\n    \"ProductType\": \"WAX\",\n    \"quantity\": 10,\n    \"quantityType\": \"KG\",\n    \"CrestaDate\": \"2023-07-07\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Hive",
+			"item": [
+				{
+					"name": "Create Hive",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"colmeia 10\",\r\n  \"apiaryID\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/protected/create-hive",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"protected",
+								"create-hive"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Hive",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"colmeia 10\",\r\n  \"apiaryID\": 5\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/protected/create-hive",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"protected",
+										"create-hive"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 Jan 2024 18:53:46 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 17,\n    \"name\": \"colmeia 10\",\n    \"apiaryID\": 5,\n    \"apiaryName\": \"Apiario 5\",\n    \"hiveSuper\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Hive",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 10,\r\n  \"name\": \"colmeia10\",\r\n  \"hiveSuper\": [\r\n    {\r\n        \"type\": \"HONEY_SUPER\",\r\n        \"numberOfBoards\": 2\r\n    },\r\n    {\r\n        \"type\": \"DEEP_SUPER\",\r\n        \"numberOfBoards\": 5\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/protected/update-hive",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"protected",
+								"update-hive"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Hive",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 10,\r\n  \"name\": \"colmeia10\",\r\n  \"hiveSuper\": [\r\n    {\r\n        \"type\": \"HONEY_SUPER\",\r\n        \"numberOfBoards\": 2\r\n    },\r\n    {\r\n        \"type\": \"DEEP_SUPER\",\r\n        \"numberOfBoards\": 5\r\n    }\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/protected/update-hive",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"protected",
+										"update-hive"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 Jan 2024 19:15:23 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 10,\n    \"name\": \"colmeia10\",\n    \"apiaryID\": 11,\n    \"apiaryName\": null,\n    \"hiveSuper\": [\n        {\n            \"id\": 1,\n            \"type\": \"HONEY_SUPER\",\n            \"numberOfBoards\": 2\n        },\n        {\n            \"id\": 2,\n            \"type\": \"DEEP_SUPER\",\n            \"numberOfBoards\": 5\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Hive Split",
+			"item": [
+				{
+					"name": "Get Hive Split List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/protected/field-book/get-hive-split-list",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"protected",
+								"field-book",
+								"get-hive-split-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register Hive Split",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"apiaryID\": 1,\r\n  \"hiveOrigID\": 1,\r\n  \"listOfHiveDestID\": [2,3],\r\n  \"reproductionQueen\": \"EXTERNAL_QUEEN\",\r\n  \"reproductionManagement\": \"COLONIES_MOVEMENT_FROM_FARM\",\r\n  \"hiveSplitDate\": \"2023-12-02\",\r\n  \"productionType\": \"CONVERSION\",\r\n  \"quantitiy\": 1,\r\n  \"quantityType\": \"KG\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/protected/field-book/register-split-hive",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"protected",
+								"field-book",
+								"register-split-hive"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Hive Split",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"apiary\": 0,\r\n  \"hiveOrigID\": 0,\r\n  \"listOfHiveDestID\": [0],\r\n  \"reproductionQueen\": \"string\",\r\n  \"reproductionManagement\": \"string\",\r\n  \"hiveSplitDate\": \"2023-12-07\",\r\n  \"productionType\": \"string\",\r\n  \"quantitiy\": 0,\r\n  \"quantityType\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/protected/field-book/update-split-hive",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"protected",
+								"field-book",
+								"update-split-hive"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Hive Split",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/protected/delete-hive-split/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"protected",
+								"delete-hive-split",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Declarations",
+			"item": [
+				{
+					"name": "Get Documents",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/protected/get-stock-declaration-document-info-list",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"protected",
+								"get-stock-declaration-document-info-list"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Documents",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/protected/get-stock-declaration-document-info-list",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"protected",
+										"get-stock-declaration-document-info-list"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Dec 2023 11:25:23 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"documentNumber\": 3,\n        \"version\": 1,\n        \"declarationType\": \"ANUAL_DECLARATION\",\n        \"year\": \"2023\",\n        \"officialBeekeeperId\": \"b1\",\n        \"submissionDate\": \"2023-12-08T16:56:22.954988\",\n        \"unidadeOrganica\": \"Recolha de mel limitada do Norte\"\n    },\n    {\n        \"documentNumber\": 4,\n        \"version\": 1,\n        \"declarationType\": \"ANUAL_DECLARATION\",\n        \"year\": \"2023\",\n        \"officialBeekeeperId\": \"b1\",\n        \"submissionDate\": \"2023-12-08T16:57:11.076544\",\n        \"unidadeOrganica\": \"Recolha de mel limitada do Norte\"\n    },\n    {\n        \"documentNumber\": 5,\n        \"version\": 1,\n        \"declarationType\": \"ANUAL_DECLARATION\",\n        \"year\": \"2023\",\n        \"officialBeekeeperId\": \"b1\",\n        \"submissionDate\": \"2023-12-08T17:10:28.547503\",\n        \"unidadeOrganica\": \"Recolha de mel limitada do Norte\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Apiary Info By Document Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/protected/get-stock-declaration-apiary-info-list/:documentNumber",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"protected",
+								"get-stock-declaration-apiary-info-list",
+								":documentNumber"
+							],
+							"variable": [
+								{
+									"key": "documentNumber",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Apiary Info",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/protected/get-stock-declaration-apiary-info-list/:documentNumber",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"protected",
+										"get-stock-declaration-apiary-info-list",
+										":documentNumber"
+									],
+									"variable": [
+										{
+											"key": "documentNumber",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Dec 2023 11:27:23 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"apiaryId\": 2,\n        \"apiaryLocation\": {\n            \"municipality\": \"Porto\",\n            \"parish\": \"Vila Nova de Gaia\",\n            \"place\": \"Crestuma\",\n            \"latitude\": 41.0687445,\n            \"longitude\": -8.5034664\n        },\n        \"placeName\": \"Gaia\",\n        \"culturaIntensiva\": true,\n        \"hiveNumber\": 3,\n        \"hiveSuperNumber\": 2,\n        \"transfer\": false,\n        \"controledZone\": true,\n        \"documentNumber\": 3\n    },\n    {\n        \"apiaryId\": 3,\n        \"apiaryLocation\": {\n            \"municipality\": \"Lisboa\",\n            \"parish\": \"Cascais\",\n            \"place\": \"Cascais\",\n            \"latitude\": 49.0687445,\n            \"longitude\": -12.5034664\n        },\n        \"placeName\": \"Lisboa\",\n        \"culturaIntensiva\": false,\n        \"hiveNumber\": 32,\n        \"hiveSuperNumber\": 22,\n        \"transfer\": false,\n        \"controledZone\": true,\n        \"documentNumber\": 3\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Beekeeper Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/protected/get-stock-declaration-beekeeper-info",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"protected",
+								"get-stock-declaration-beekeeper-info"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Beekeeper Info",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/protected/get-stock-declaration-beekeeper-info",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"protected",
+										"get-stock-declaration-beekeeper-info"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Dec 2023 11:30:11 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"beekeeperOfficialID\": \"b1\",\n    \"beekeeperAddress\": \"Rua do sitio\",\n    \"beekeeperPhoneNumber\": 934567985,\n    \"beekeeperNif\": 456345789\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Apiary Total Info By Document Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/protected/get-stock-declaration-total-apiary-info/:documentNumber",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"protected",
+								"get-stock-declaration-total-apiary-info",
+								":documentNumber"
+							],
+							"variable": [
+								{
+									"key": "documentNumber",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Apiary Total Info By Document Id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/protected/get-stock-declaration-total-apiary-info/:documentNumber",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"protected",
+										"get-stock-declaration-total-apiary-info",
+										":documentNumber"
+									],
+									"variable": [
+										{
+											"key": "documentNumber",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Dec 2023 11:31:25 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"listApiarysWithInfo\": [\n        {\n            \"apiaryId\": 1,\n            \"apiaryLocation\": {\n                \"municipality\": \"Lisboa\",\n                \"parish\": \"Vila Nova de Gaia\",\n                \"place\": \"Crestuma\",\n                \"latitude\": 43.0687445,\n                \"longitude\": -8.5034664\n            },\n            \"placeName\": null,\n            \"culturaIntensiva\": false,\n            \"hiveNumber\": 6,\n            \"hiveSuperNumber\": 0,\n            \"transfer\": false,\n            \"controledZone\": false,\n            \"documentNumber\": 3\n        },\n        {\n            \"apiaryId\": 2,\n            \"apiaryLocation\": {\n                \"municipality\": \"Porto\",\n                \"parish\": \"Vila Nova de Gaia\",\n                \"place\": \"Crestuma\",\n                \"latitude\": 41.0687445,\n                \"longitude\": -8.5034664\n            },\n            \"placeName\": null,\n            \"culturaIntensiva\": false,\n            \"hiveNumber\": 1,\n            \"hiveSuperNumber\": 0,\n            \"transfer\": false,\n            \"controledZone\": false,\n            \"documentNumber\": 3\n        },\n        {\n            \"apiaryId\": 3,\n            \"apiaryLocation\": {\n                \"municipality\": \"Porto\",\n                \"parish\": \"Vila Nova de Gaia\",\n                \"place\": \"Crestuma\",\n                \"latitude\": 41.0687445,\n                \"longitude\": -8.5034664\n            },\n            \"placeName\": null,\n            \"culturaIntensiva\": false,\n            \"hiveNumber\": 1,\n            \"hiveSuperNumber\": 0,\n            \"transfer\": false,\n            \"controledZone\": false,\n            \"documentNumber\": 3\n        },\n        {\n            \"apiaryId\": 7,\n            \"apiaryLocation\": {\n                \"municipality\": \"Teste front\",\n                \"parish\": \"Teste front\",\n                \"place\": \"Teste front\",\n                \"latitude\": 42,\n                \"longitude\": 8\n            },\n            \"placeName\": null,\n            \"culturaIntensiva\": false,\n            \"hiveNumber\": 0,\n            \"hiveSuperNumber\": 0,\n            \"transfer\": false,\n            \"controledZone\": false,\n            \"documentNumber\": 3\n        },\n        {\n            \"apiaryId\": 8,\n            \"apiaryLocation\": {\n                \"municipality\": \"Teste front\",\n                \"parish\": \"Teste front\",\n                \"place\": \"Teste front\",\n                \"latitude\": 42,\n                \"longitude\": 8\n            },\n            \"placeName\": null,\n            \"culturaIntensiva\": false,\n            \"hiveNumber\": 2,\n            \"hiveSuperNumber\": 0,\n            \"transfer\": false,\n            \"controledZone\": false,\n            \"documentNumber\": 3\n        }\n    ],\n    \"totalApiaryNumber\": 5,\n    \"totalHiveNumber\": 10,\n    \"totalHiveSuperNumber\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Document",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"version\": 1,\r\n  \"declarationType\": \"ANUAL_DECLARATION\",\r\n  \"year\": \"2023\",\r\n  \"unidadeOrganica\": \"cenas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/protected/create-stock-declaration-document-info",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"protected",
+								"create-stock-declaration-document-info"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Document",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"version\": 1,\r\n  \"declarationType\": \"ANUAL_DECLARATION\",\r\n  \"year\": \"2023\",\r\n  \"unidadeOrganica\": \"cenas\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/protected/create-stock-declaration-document-info",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"protected",
+										"create-stock-declaration-document-info"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Dec 2023 11:39:58 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"documentNumber\": 6,\n    \"version\": 1,\n    \"declarationType\": \"ANUAL_DECLARATION\",\n    \"year\": \"2023\",\n    \"officialBeekeeperId\": \"b1\",\n    \"submissionDate\": \"2023-12-09T11:39:57.971103\",\n    \"unidadeOrganica\": \"cenas\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Apiary Info",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n    \"apiaryLocation\": {\r\n        \"municipality\": \"Porto\",\r\n        \"parish\": \"Vila Nova de Gaia\",\r\n        \"place\": \"Crestuma\",\r\n        \"latitude\": 41.0687445,\r\n        \"longitude\": -8.5034664\r\n    },\r\n    \"placeName\": \"Crestuma\",\r\n    \"culturaIntensiva\": false,\r\n    \"hiveNumber\": 1,\r\n    \"hiveSuperNumber\": 2,\r\n    \"colonynumber\": 3,\r\n    \"transfer\": false,\r\n    \"controledZone\": false,\r\n    \"apiaryId\": 1,\r\n    \"documentNumber\": 6\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/protected/create-stock-declaration-apiary-info",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"protected",
+								"create-stock-declaration-apiary-info"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "appAuth",
+			"value": "password",
+			"type": "string"
+		},
+		{
+			"key": "authToken",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "authTokenHeader",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "setCookieHeader",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

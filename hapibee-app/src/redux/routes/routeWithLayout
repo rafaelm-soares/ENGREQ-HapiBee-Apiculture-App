@@ -1,0 +1,14 @@
+
+// import { Route, RouteProps } from "react-router-dom";
+
+// interface Props extends RouteProps {
+//   component: React.ReactNode;
+//   layout: React.ReactNode;
+// }
+
+// export const RouteWithLayout = (props: Props) => {
+//   return (
+//     <Route
+//     />
+//   )
+// }

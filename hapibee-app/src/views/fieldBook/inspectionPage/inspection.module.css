@@ -1,0 +1,22 @@
+.container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  min-height: calc(100vh - 96px);
+  width: 100%;
+  padding: 4rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 1rem;
+    margin-bottom: 8rem;
+  }
+}

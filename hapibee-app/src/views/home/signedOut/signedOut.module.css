@@ -1,0 +1,15 @@
+.homeSignedOut {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 3rem 2rem;
+}
+
+.logo {
+  font-size: 5rem;
+  fill: var(--color-brand);
+  text-align: center;
+}

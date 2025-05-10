@@ -1,0 +1,70 @@
+.btnLink {
+  text-decoration: none;
+}
+
+.btn {
+  margin: 0.5rem;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  -webkit-tap-highlight-color: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  outline: 0px;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  appearance: none;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 5px 15px;
+  border-radius: 8px;
+  color: var(--color-primary);
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+.btn:hover {
+  text-decoration: none;
+}
+
+.primaryBtn {
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-primary-transparency);
+}
+
+.primaryBtn:hover {
+  color: var(--color-primary);
+  text-decoration: none;
+  background-color: var(--color-primary-hover);
+}
+
+.secondaryBtn {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-primary-transparency);
+}
+
+.secondaryBtn:hover {
+  text-decoration: none;
+  background-color: var(--color-primary-hover);
+  border: 1px solid var(--color-primary);
+}
+
+.disabled {
+  cursor: pointer;
+  border-color: var(--color-grey);
+  background-color: var(--color-grey);
+}
+
+.disabled:hover {
+  background-color: var(--color-grey);
+  color: var(--color-white);
+}

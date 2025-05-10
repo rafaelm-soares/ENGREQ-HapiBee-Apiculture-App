@@ -1,0 +1,40 @@
+.inspectionContainer {
+  width: 100%;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  text-decoration: underline;
+}
+
+.btnContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.btnOption {
+  width: 10rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 0.5rem;
+  border-radius: var(--radius-btn);
+}
+
+.btnOption:hover {
+  cursor: pointer;
+}
+
+.active {
+  background-color: var(--color-feedback-success);
+  color: var(--color-white);
+  font-weight: 600;
+}
+
+.cardContainer {
+  margin-bottom: 3rem;
+}

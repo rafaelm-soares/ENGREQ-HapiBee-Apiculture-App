@@ -1,0 +1,221 @@
+.homeSignedIn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 3rem 2rem;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.logo {
+  font-size: 5rem;
+  fill: var(--color-brand);
+  text-align: center;
+}
+
+/* .bee {
+  position: absolute;
+  top: 20vh;
+  width: 75px;
+  height: 80px;
+  background: url(//cdn.ficsystems.com/_new/common/3.0/images/characters/earthday-bee.svg);
+  animation: walk-cycle 0.1s infinite steps(6), move 10s forwards linear;
+}
+
+@-webkit-keyframes walk-cycle {
+  0%   {background-position: 0 0;}
+  100% {background-position: -450px 0;}
+}
+
+@keyframes move {
+  0%    { transform: translate(-10vw, 10vh); }
+  10%   { transform: translate(0vw, 15vh); }
+  20%   { transform: translate(10vw, 20vh); }
+  30%   { transform: translate(20vw, 15vh); }
+  40%   { transform: translate(30vw, 10vh); }
+  50%   { transform: translate(40vw, 5vh); }
+  60%   { transform: translate(50vw, 0vh); }
+  70%   { transform: translate(65vw, 5vh); }
+  80%   { transform: translate(80vw, 10vh); }
+  90%   { transform: translate(95vw, 15vh); }
+  100%  { transform: translate(110vw, 20vh); }
+} */
+
+.bug {
+  margin-top: 25rem;
+  margin-left: -100px;
+  transform: rotate(-360deg);
+  width: 100px;
+  height: 50px;
+  position: absolute;
+  animation: bee 5s linear infinite both;
+}
+.bee1 {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #FFC107;
+  position: absolute;
+  left: 50px;
+  top: 50px;
+  z-index: 6;
+}
+.bee2 {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px 18px 20px 18px;
+  background-color: #FFC107;
+  position: absolute;
+  left: 30px;
+  top: 50px;
+  z-index: 4;
+}
+.black {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px 18px 20px 18px;
+  background-color: black;
+  position: absolute;
+  left: 40px;
+  top: 50px;
+  z-index: 5;
+}
+.eye {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: black;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 6;
+  animation: eye 0.5s 2.2s 2 linear;
+}
+.wing {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #BBDEFB;
+  position: absolute;
+  right: 10px;
+  top: -15px;
+  z-index: 2;
+  border: 0.5px solid #90CAF9;
+  animation: wings 1s linear infinite;
+}
+.wing2 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #BBDEFB;
+  position: absolute;
+  right: 0;
+  top: -15px;
+  border: 0.5px solid #90CAF9;
+  z-index: 1;
+  animation: wings2 1s linear infinite;
+}
+@keyframes bee {
+  0% { 
+    transform: rotate(0deg);
+    margin-left: -100px;
+    margin-top: 50px;}
+  10% {
+    transform: rotate(-10deg);
+    margin-left: 100px;
+    margin-top: 80px;
+  }
+  20% { 
+    transform: rotate(-20deg);
+    margin-left: 200px;
+    margin-top: 80px;
+  }
+  50% {
+    margin-left: 500px;
+    margin-top: 50px;
+    transform: rotate(-360deg);
+  }
+ 60% {
+     margin-left: 600px;
+     margin-top: 60px;
+     transform: rotate(-360deg);
+  }
+  100% { 
+     margin-left: 900px;
+     margin-top: 80px;
+  }
+}
+@keyframes wings {
+  20% {
+    right: 12px;
+  }
+  30% {
+    right: 8px;
+  }
+  40% {
+    right: 12px;
+  }
+  50% {
+    right: 8px;
+  } 
+  60% {
+    right: 12px;
+  }
+  70% {
+    right: 8px;
+  }
+  80% {
+    right: 12px;
+  }
+  90% {
+    right: 8px;
+  }
+}
+@keyframes wings2 {  
+  20% {
+    right: -2px;
+  }
+  30% {
+    right: 2px;
+  }
+  40% {
+    right: -2px;
+  }
+  50% {
+    right: 2px;
+  } 
+  60% {
+    right: -2px;
+  }
+  70% {
+    right: 2px;
+  }
+  80% {
+    right: -2px;
+  }
+  90% {
+    right: 2px;
+  }
+}
+@keyframes eye {
+  0% {  width: 5px;
+  height: 5px;}
+  10% {
+  width: 0;
+  height: 0;
+  }
+  40% {
+  width: 5px;
+  height: 5px;
+  }
+  50% {
+  width: 5px;
+  height: 5px;
+  }
+  100% {  width: 5px;
+  height: 5px;}
+}

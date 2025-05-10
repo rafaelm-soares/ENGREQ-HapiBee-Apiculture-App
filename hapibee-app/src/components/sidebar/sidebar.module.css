@@ -1,0 +1,16 @@
+svg.logo {
+  fill: var(--color-sidebar-icons);
+  height: 1.2rem;
+  width: 1.2rem;
+  color: var(--color-sidebar);
+}
+
+svg.submenu {
+  fill: var(--color-submenu-item1-icons);
+  height: 1.2rem;
+  width: 1.2rem;
+}
+
+svg.lineLogo {
+  color: var(--color-sidebar-icons);
+}

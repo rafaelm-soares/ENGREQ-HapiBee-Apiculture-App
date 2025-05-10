@@ -1,0 +1,39 @@
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  padding: 4rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.identification,
+.postal,
+.beekeeper,
+.credentials {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .formWrapper {
+    padding: 2rem;
+  }
+
+  .identification,
+  .credentials {
+    flex-direction: column;
+  }
+}

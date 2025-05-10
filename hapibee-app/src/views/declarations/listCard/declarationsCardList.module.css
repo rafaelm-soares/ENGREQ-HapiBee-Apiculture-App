@@ -1,0 +1,60 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.card .left {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  color: var(--color-brand);
+  width: 4rem;
+  height: 4rem;
+}
+
+.card .right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.info {
+  margin: 0;
+  text-align: left;
+  font-size: 0.8rem;
+  color: var(--color-primary);
+}
+
+.infoTitle {
+  font-weight: 800;
+}
+
+.card .modal {
+  width: 90%;
+  max-height: 80%;
+}

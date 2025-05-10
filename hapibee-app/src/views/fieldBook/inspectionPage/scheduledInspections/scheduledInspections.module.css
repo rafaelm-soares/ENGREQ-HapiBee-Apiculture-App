@@ -1,0 +1,33 @@
+.scheduleContainer {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  text-decoration: underline;
+}
+
+.schedules {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+.right {
+  padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 0.5rem;
+}
+
+.info {
+  margin: 0;
+  text-align: left;
+  font-size: 0.8rem;
+  color: var(--color-primary);
+}
+
+.infoTitle {
+  font-weight: 800;
+}

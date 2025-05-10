@@ -1,0 +1,207 @@
+.sidebarDesktop {
+  box-sizing: border-box;
+  height: 100vh;
+  background-color: var(--color-sidebar);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  padding: 1.5rem 0.5rem;
+}
+
+.sidebarLinks {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.sidebarLinks .navLink {
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: var(--radius-btn);
+  margin: 6px auto;
+  padding: 0.5rem;
+  text-decoration: unset;
+  height: 2.2rem;
+  position: relative;
+}
+
+.sidebarLinks .navLink .label {
+  white-space: nowrap;
+}
+
+svg.icon,
+svg.iconExpanded {
+  fill: var(--color-sidebar-icons);
+  height: 1.2rem;
+  width: 1.2rem;
+}
+
+.sidebarLinks .active {
+  background-color: var(--color-sidebar-link-active);
+  border-radius: var(--radius-btn);
+}
+
+.sidebarLinks .active svg {
+  fill: var(--color-sidebar-icons-active);
+}
+
+.sidebarLinks .active:hover svg {
+  fill: var(--color-sidebar-icons-active);
+}
+
+/* 
+* CLOSED SIDEBAR
+*/
+.sidebarDesktopClosed {
+  width: var(--width-sidebar-desktop-closed);
+  /* transition: all 0.5s ease; */
+}
+
+.sidebarDesktopClosed .sidebarLinks .navLink .label {
+  display: none;
+}
+
+.sidebarDesktopClosed .sidebarLinks .navLink:hover svg {
+  fill: var(--color-sidebar-icons-hover);
+  z-index: 1;
+}
+
+.sidebarDesktopClosed .sidebarLinks .navLink:hover .label {
+  background-color: var(--color-sidebar-link-hover);
+  border-radius: var(--radius-btn);
+  color: var(--color-sidebar-icons-hover);
+  display: inline;
+  font-weight: 500;
+  line-height: 1.5em;
+  padding: 0.4rem 2rem 0.4rem 4rem;
+  position: absolute;
+  white-space: nowrap;
+  left: 0rem;
+  transform: translateY(-25%);
+  z-index: 1;
+}
+
+/*
+* OPEN SIDEBAR
+*/
+.sidebarDesktopOpened {
+  width: var(--width-sidebar-desktop-open);
+  /* transition: all 0.5s ease; */
+}
+
+.sidebarDesktopOpened .sidebarHeader {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: 0 1rem;
+}
+
+.sidebarDesktopOpened .sidebarLinks .navLink {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9rem;
+}
+
+.sidebarDesktopOpened .sidebarLinks .navLink .label {
+  display: inline-block;
+  color: var(--color-sidebar-icons);
+  font-weight: 300;
+}
+
+.sidebarDesktopOpened .sidebarLinks .navLink:hover {
+  background-color: var(--color-sidebar-link-hover);
+}
+
+.sidebarDesktopOpened .sidebarLinks .active span.label {
+  color: var(--color-sidebar-icons-active);
+  font-weight: 700;
+}
+
+.sidebarDesktopOpened .sidebarLinks .active:hover span.label {
+  color: var(--color-sidebar-icons-active);
+}
+
+/*
+* ADD SCROLL WHEN OVERFLOW Y
+*/
+@media screen and (max-height: 769px) {
+  .sidebarDesktop {
+    overflow-y: auto;
+  }
+
+  .sidebarDesktop::-webkit-scrollbar {
+    width: 0.3rem;
+  }
+
+  .sidebarDesktop::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: var(--color-grey);
+    border-radius: 10px;
+  }
+
+  .sidebarDesktop::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: var(--color-primary);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/*
+* MOBILE
+*/
+
+@media screen and (max-width: 768px) {
+  .sidebarHeader .openCloseBtn {
+    display: none;
+  }
+
+  .mobileMaximized .navLink {
+    margin: 0px 2px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1rem;
+    height: 3rem;
+    padding: 0.5rem;
+  }
+
+  .mobileMaximized .sidebarLinks .navLink .label {
+    display: inline-block;
+    color: var(--color-sidebar-icons);
+    font-weight: 300;
+    line-height: 1.25em;
+  }
+
+  .sidebarDesktopClosed .sidebarLinks .navLink:hover .label {
+    transform: unset;
+  }
+
+  .mobileMaximized {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-radius: 20px 20px 0px 0px;
+    height: 50vh;
+    max-height: 85vh;
+    min-width: unset;
+    width: 100%;
+    background-color: var(--color-sidebar);
+    z-index: 1;
+    padding: 2.5rem 3rem;
+    overflow-y: auto;
+  }
+}

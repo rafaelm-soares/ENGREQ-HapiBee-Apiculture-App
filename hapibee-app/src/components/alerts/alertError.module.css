@@ -1,0 +1,24 @@
+.container {
+  width: 100%;
+}
+
+.alert {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  color: var(--bootstrap-alert-danger-text);
+  background-color: var(--bootstrap-alert-danger-background);
+  border-color: var(--bootstrap-alert-danger-border);
+}
+
+.alert .librariesHeader {
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.alert .librariesList {
+  text-align: left;
+  color: var(--bootstrap-alert-danger-text);
+}

@@ -1,0 +1,75 @@
+/* https://colorhunt.co/palette/ed7d316c5f5b4f4a45f6f1ee */
+
+:root {
+  --color-brand: #ED7D31;
+  --color-logo: #6C5F5B;
+  --color-dirt-white: #F6F1EE;
+  --color-white: #fff;
+  --color-grey: #d3d3d3;
+  --color-dark: #312f2f;
+  --color-primary: #4F4A45;
+  --color-primary-transparency: rgba(79, 74, 69, 0.5);
+  --color-primary-hover: rgba(25, 118, 210, 0.04);
+  --color-feedback-error: #c60606;
+  --color-feedback-success: #05a896;
+
+  --bootstrap-alert-primary-border: #b8daff;
+  --bootstrap-alert-primary-background: #cce5ff;
+  --bootstrap-alert-primary-text: #004085;
+  --bootstrap-alert-secondary-border: #d6d8db;
+  --bootstrap-alert-secondary-background: #e2e3e5;
+  --bootstrap-alert-secondary-text: #383d41;
+  --bootstrap-alert-success-border: #c3e6cb;
+  --bootstrap-alert-success-background: #d4edda;
+  --bootstrap-alert-success-text: #155724;
+  --bootstrap-alert-danger-border: #f5c6cb;
+  --bootstrap-alert-danger-background: #f8d7da;
+  --bootstrap-alert-danger-text: #721c24;
+  --bootstrap-alert-warning-border: #ffeeba;
+  --bootstrap-alert-warning-background: #fff3cd;
+  --bootstrap-alert-warning-text: #856404;
+  --bootstrap-alert-info-border: #bee5eb;
+  --bootstrap-alert-info-background: #d1ecf1;
+  --bootstrap-alert-info-text: #0c5460;
+  --bootstrap-alert-light-border: #fdfdfe;
+  --bootstrap-alert-light-background: #fefefe;
+  --bootstrap-alert-light-text: #818182;
+  --bootstrap-alert-dark-border: #c6c8ca;
+  --bootstrap-alert-dark-background: #d6d8d9;
+  --bootstrap-alert-dark-text: #1b1e21;
+
+  --color-background: var(--color-white);
+  --color-overlay: rgba(255, 255, 255, 0.6);
+
+  --radius-btn: 12px;
+  --height-btn: 2rem;
+  --color-btn: var(--color-primary);
+  --color-btn-hover: var(--color-primary-transparency);
+  --color-btn-active: var(--color-logo);
+  --color-btn-disabled: var(--color-grey);
+  --color-btn-text: var(--color-white);
+
+  --height-input: 2rem;
+  --height-header: 50px;
+
+  --height-sidebar-mobile: 4rem;
+  --width-sidebar-desktop-closed: 4rem;
+  --width-sidebar-desktop-open: 16rem;
+  --color-sidebar: var(--color-logo);
+  --color-sidebar-icons: var(--color-white);
+  --color-sidebar-icons-hover: var(--color-white);
+  --color-sidebar-icons-active: var(--color-white);
+  --color-sidebar-link-hover: var(--color-primary-transparency);
+  --color-sidebar-link-active: var(--color-primary-transparency);
+
+  --media-max-width-mobileS: 320px;
+  --media-max-width-mobileM: 375px;
+  --media-max-width-mobileL: 425px;
+  --media-max-width-tablet: 768px;
+  --media-max-width-min-laptop: 1024px;
+}
+
+:root[data-theme="theme-dark"] {
+  --color-background: var(--color-dark);
+  --color-overlay: rgba(0, 0, 0, 0.6);
+}

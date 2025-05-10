@@ -1,0 +1,39 @@
+{
+  "short_name": "HapiBee App",
+  "name": "HapiBee Apiary Management App",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "images/logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "images/logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "scope": "/",
+  "splash_pages": [
+    {
+      "url": "index.html",
+      "name": "HapiBee",
+      "icons": [
+        {
+          "src": "images/logo512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "display": "standalone",
+  "theme_color": "#ED7D31",
+  "background_color": "#ffffff"
+}

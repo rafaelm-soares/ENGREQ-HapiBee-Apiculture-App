@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import './main.css';
+
+h1 {
+  color: var(--color-onBackground);
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.5em;
+}
+
+h2 {
+  color: var(--color-onBackground);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.5em;
+}
+
+h3 {
+  color: var(--color-onBackground);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.5em;
+}
+
+h4 {
+  color: var(--color-onBackground);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5em;
+}
+
+h5 {
+  color: var(--color-onBackground);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1em;
+}
+
+h6 {
+  color: var(--color-onBackground);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1em;
+}
+
+p {
+  color: var(--color-onBackground-secondary);
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 1em;
+  margin: 0;
+  word-wrap: break-word;
+  white-space: -moz-pre-wrap;
+  white-space: pre-wrap;
+}
+
+html,
+html body {
+  color: var(--color-onBackground-secondary);
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 1em;
+}
+
+button {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.25em;
+}
+
+.caption,
+.breadcrumb {
+  font-size: 0.75rem;
+  font-weight: 300;
+  line-height: 0.875rem;
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+    /* original value 12px */
+  }
+}
+
+@media (min-width: 480px) {
+  html {
+    font-size: 14px;
+    /* original value 13px */
+  }
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 14px;
+    /* original value 14px */
+  }
+}
+
+@media (min-width: 992px) {
+  html {
+    font-size: 14px;
+    /* original value 15px */
+  }
+}
+
+@media (min-width: 1200px) {
+  html {
+    font-size: 14px;
+    /* original value 16px */
+  }
+}
